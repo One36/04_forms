@@ -52,7 +52,7 @@ $airports[] = ['SXF' , 'Berlin - Schönefeld'];
                         <?php for ($i = 0; $i < count($airports); $i++) : ?>
                             <option value="<?php echo $airports[$i][0]; ?>"><?php echo $airports[$i][1]; ?></option>
                         <?php endfor; ?>
-
+ 
                     </select>
                 </fieldset>
             </form>
