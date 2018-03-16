@@ -1,4 +1,12 @@
 <?php
+
+// 2. Variante - Selected = Eingaben speichern > Funktion
+function _selected ($a,$b) {
+    
+    return ($a === $b) ? 'selected' : '';
+    
+}
+
 $lastname = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
 $firstname = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING);
 $airportStart = filter_input(INPUT_POST, 'airportStart', FILTER_SANITIZE_STRING);
@@ -55,35 +63,68 @@ $airports[] = ['SXF', 'Berlin - Schönefeld'];
                     </div>
                 </fieldset>
                 <hr>
+                
+            <!--/////// 2. Variante - Selected = Eingaben speichern >> Funktion > siehe oben ////////-->    
                 <fieldset>
                     <legend>Auswahl des Flughafens</legend>
                     <select class="form-control" name="airportStart">
                         <option>Bitte Flughafen auswählen...</option>
 
-                        ---> Wenn ich etwas sende soll der gleiche inhalt dargestellt bleiben
-                        ---> selected in option
-                        ---> if ()
+                        <?php for ($i = 0; $i < count($airports); $i++) : ?>
+                        
+                                <option <?php echo _selected ($airportStart, $airports[$i][0]); ?> value="<?php echo $airports[$i][0]; ?>">
+                                    <?php echo $airports[$i][1]; ?></option>
+                               
+                        <?php endfor; ?>
+
+                    </select>
+                </fieldset>
+
+            <hr>
+            
+                <!--     /////// 1. Variante - Selected = Eingaben speichern ////////    
+                <fieldset>
+                    <legend>Auswahl des Flughafens</legend>
+                    <select class="form-control" name="airportStart">
+                        <option>Bitte Flughafen auswählen...</option>
+
 
                         <?php for ($i = 0; $i < count($airports); $i++) : ?>
+                        
 
                             <?php if ($airportStart === $airports[$i][0]) : ?>
-                        
                                 <option selected value="<?php echo $airports[$i][0]; ?>">
-                                    
                                     <?php echo $airports[$i][1]; ?></option>
-                                
                             <?php else : ?>
-                                
                                 <option value="<?php echo $airports[$i][0]; ?>">
-                                    
                                     <?php echo $airports[$i][1]; ?></option>
-                                
                             <?php endif; ?>
                                 
                         <?php endfor; ?>
 
                     </select>
-                </fieldset>
+                </fieldset> -->
+                                    
+                <hr>
+                
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Vorname</td>
+                            <td><?php echo $firstname; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Nachname</td>
+                            <td><?php echo $lastname; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Abflughafen</td>
+                            <td><?php echo $airportStart; ?></td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+                
             </form>
         </div>
     </body>
