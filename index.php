@@ -1,10 +1,9 @@
 <?php
 
 // 2. Variante - Selected = Eingaben speichern > Funktion
-function _selected ($a,$b) {
-    
+function _selected($a, $b) {
+
     return ($a === $b) ? 'selected' : '';
-    
 }
 
 $lastname = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
@@ -21,6 +20,10 @@ $airports[] = ['SXF', 'Berlin - Schönefeld'];
 //$airports = [0];
 //$airports[0]['TXL'] = 'Berlin - Tegel';
 //$airports[] = ['TXL' => 'Berlin - Tegel'];
+
+$airportsName = [];
+$airportsName['TXL'] = 'Berlin - Tegel';
+$airportsName['SXF'] = 'Berlin - Schönefeld';
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,25 +66,25 @@ $airports[] = ['SXF', 'Berlin - Schönefeld'];
                     </div>
                 </fieldset>
                 <hr>
-                
-            <!--/////// 2. Variante - Selected = Eingaben speichern >> Funktion > siehe oben ////////-->    
+
+                <!--/////// 2. Variante - Selected = Eingaben speichern >> Funktion > siehe oben ////////-->    
                 <fieldset>
                     <legend>Auswahl des Flughafens</legend>
                     <select class="form-control" name="airportStart">
                         <option>Bitte Flughafen auswählen...</option>
 
-                        <?php for ($i = 0; $i < count($airports); $i++) : ?>
-                        
-                                <option <?php echo _selected ($airportStart, $airports[$i][0]); ?> value="<?php echo $airports[$i][0]; ?>">
-                                    <?php echo $airports[$i][1]; ?></option>
-                               
-                        <?php endfor; ?>
+<?php for ($i = 0; $i < count($airports); $i++) : ?>
+
+                            <option <?php echo _selected($airportStart, $airports[$i][0]); ?> value="<?php echo $airports[$i][0]; ?>">
+                            <?php echo $airports[$i][1]; ?></option>
+
+<?php endfor; ?>
 
                     </select>
                 </fieldset>
 
-            <hr>
-            
+                <hr>
+
                 <!--     /////// 1. Variante - Selected = Eingaben speichern ////////    
                 <fieldset>
                     <legend>Auswahl des Flughafens</legend>
@@ -89,24 +92,24 @@ $airports[] = ['SXF', 'Berlin - Schönefeld'];
                         <option>Bitte Flughafen auswählen...</option>
 
 
-                        <?php for ($i = 0; $i < count($airports); $i++) : ?>
-                        
+<?php for ($i = 0; $i < count($airports); $i++) : ?>
+                            
 
-                            <?php if ($airportStart === $airports[$i][0]) : ?>
-                                <option selected value="<?php echo $airports[$i][0]; ?>">
-                                    <?php echo $airports[$i][1]; ?></option>
-                            <?php else : ?>
-                                <option value="<?php echo $airports[$i][0]; ?>">
-                                    <?php echo $airports[$i][1]; ?></option>
-                            <?php endif; ?>
-                                
-                        <?php endfor; ?>
+                    <?php if ($airportStart === $airports[$i][0]) : ?>
+                                        <option selected value="<?php echo $airports[$i][0]; ?>">
+        <?php echo $airports[$i][1]; ?></option>
+                    <?php else : ?>
+                                        <option value="<?php echo $airports[$i][0]; ?>">
+                        <?php echo $airports[$i][1]; ?></option>
+                    <?php endif; ?>
+                                    
+                <?php endfor; ?>
 
                     </select>
                 </fieldset> -->
-                                    
+
                 <hr>
-                
+
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
@@ -122,9 +125,8 @@ $airports[] = ['SXF', 'Berlin - Schönefeld'];
                             <td><?php echo $airportStart; ?></td>
                         </tr>
                     </tbody>
-                    
                 </table>
-                
+
             </form>
         </div>
     </body>
