@@ -8,7 +8,7 @@ if (isset($_FILES['uploadFile'])) {
     if ($imgType >= 1 && $imgType <= 3) {
         
         $folder = './uploads/';
-        $filename = uniqid();
+        $filename = uniqid('634287', true);
         $filetype = $imageTypes[$imgType];
         
         
