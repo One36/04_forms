@@ -18,8 +18,8 @@ $airports[] = ['SXF', 'Berlin - Schönefeld'];
 
 // Aufschlüsselung
 //$airports = [0];
-//$airports[0]['TXL'] = 'Berlin - Tegel';
-//$airports[] = ['TXL' => 'Berlin - Tegel'];
+//$airports[0]['TXL'] = 'Berlin - Tegel',
+//$airports[] = ['SXF' => 'Berlin - Schönefeld'];
 
 $airportsName = [];
 $airportsName['TXL'] = 'Berlin - Tegel';
@@ -75,7 +75,7 @@ $airportsName['SXF'] = 'Berlin - Schönefeld';
 
 <?php for ($i = 0; $i < count($airports); $i++) : ?>
 
-                            <option <?php echo _selected($airportStart, $airports[$i][0]); ?> value="<?php echo $airports[$i][0]; ?>">
+                        <option <?php echo _selected($airportStart, $airports[$i][0]); ?> value="<?php echo $airports[$i][0]; ?>">
                             <?php echo $airports[$i][1]; ?></option>
 
 <?php endfor; ?>

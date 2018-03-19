@@ -1,0 +1,19 @@
+﻿$airports = [];
+$airports['TXL'] = 'Tegel';
+$airports['SXF'] = 'Schönefeld';
+
+$airports = [
+	'TXL' => 'Tegel',
+	'SXF' => 'Schönefeld'
+];
+
+
+foreach($airports as $key => $value) {
+
+
+<input type="checkbox" name="depart[]" 
+value="<?php echo $key ?>">
+
+<?php echo $value; ?>
+
+}

@@ -1,0 +1,15 @@
+﻿               0    1       2              3          4			
+$breakfast = ['', 'Ei', 'Bratwurst', 'Cornflakes', 'Kaviar'];
+
+
+for ($i = 1;$i < count($breakfast);$i++) {
+
+
+<input type="checkbox" name="selection[]" 
+
+value="<?php echo $i ?>">
+
+<?php echo $breakfast[$i]; ?>
+
+
+}
